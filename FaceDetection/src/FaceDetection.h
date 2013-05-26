@@ -29,8 +29,6 @@ public:
 	void initialize(string path, vector<string> files);
 	int predictFace(Mat& img);
 
-	bool findAndNormalizeFace(Mat& img);
-
 protected:
 	CascadeClassifier faceClassifier;
 	CascadeClassifier leftEyeClassifier;
@@ -42,11 +40,6 @@ protected:
 	vector<string> files;
 
 	Ptr<FaceRecognizer> model;
-
-	bool normalizeImage(Mat& img);
-	bool findEye(vector< Rect_<int> >& eyes, Rect_<int>& found, bool left);
-	Point findCenter(Rect_<int> rect);
-	Mat rotateImage(const Mat& source, Point2f pivot, double angle);
 };
 
 
